@@ -1,6 +1,6 @@
 import pygame  
 from random import randint
-from sort import Sort
+from sort import *
 
 pygame.init()  
 WHITE = (255 , 255 , 255)
@@ -10,10 +10,13 @@ WS =(1000, 500)
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode(WS)
 
-obj = Sort(screen , WS)
+obj = mergesort(screen , WS)
+#obj = Sort(screen , WS) 
 def mainloop():
     done = False  
-    obj.insertion()
+    obj.sort()
+    obj.sorted()
+    #obj.insertion()
     while not done:  
         for event in pygame.event.get():  
             if event.type == pygame.QUIT:  

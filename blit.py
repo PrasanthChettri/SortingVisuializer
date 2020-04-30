@@ -5,7 +5,7 @@ WHITE = (255 , 255 , 255)
 RED = (255 , 0 , 0)
 BLUE = (0 , 0 , 255)
 
-
+k = iter([300,200,100])
 class Blit():
     blit_width  =  10
     @staticmethod
@@ -15,13 +15,13 @@ class Blit():
             else : obj.get_rect(i , BLUE)
 
     def __init__(self , screen , window_size):
-        self.blit_height =  randint(1 , 334)
+        self.blit_height = randint(1 , 334)#next(k) 
         self.y = window_size[-1] - self.blit_height
         self.color = (0 , 0 , 255) 
         self.screen = screen
 
     def get_rect(self ,  x , COLOR): 
-        pygame.draw.rect(self.screen , COLOR ,((Blit.blit_width + 10) * x   , self.y , Blit.blit_width ,self.blit_height))
+        pygame.draw.rect(self.screen , COLOR ,((Blit.blit_width + 1) * x   , self.y , Blit.blit_width ,self.blit_height))
 
     def H(self):
         return self.blit_height
