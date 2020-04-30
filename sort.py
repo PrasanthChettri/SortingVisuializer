@@ -1,6 +1,7 @@
 import pygame
 from font import text
 from blit import Blit
+import random
 
 
 clock = pygame.time.Clock()
@@ -129,3 +130,27 @@ class mergesort(Sort):
             self.sort(left , middle)
             self.sort(middle + 1, right)
             self.merge(left , right , middle)
+
+#the greatest sorting algo of all : B O G O S O R T
+class bogosort(Sort):
+    def __init__(self, screen , window_size):
+        self.name = "B O G O SORT the chaddest sort"
+        super().__init__(screen , window_size)
+        self.arr = blits
+        self.l = len(self.arr)
+
+    def is_sorted(self): 
+        for i in range(0, self.l-1): 
+            if (self.arr[i].H() > self.arr[i+1].H()): 
+                return False
+        return True
+
+    def sort(self): 
+        while (self.is_sorted() == False): 
+            self.shuffle() 
+
+    def shuffle(self): 
+        for i in range (0,self.l): 
+            r = random.randint(0,self.l-1) 
+            self.arr[i], self.arr[r] = self.arr[r], self.arr[i] 
+            self.show(self.name , self.screen ,i , r)

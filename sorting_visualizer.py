@@ -10,7 +10,7 @@ WS =(1000, 500)
 clock = pygame.time.Clock()
 screen = pygame.display.set_mode(WS)
 
-obj = mergesort(screen , WS)
+obj = bogosort(screen , WS)
 #obj = Sort(screen , WS) 
 def mainloop():
     done = False  
