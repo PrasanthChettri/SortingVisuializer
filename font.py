@@ -14,5 +14,5 @@ class text():
             self.screen.blit(text, (20, 20))
 
         except Exception as e:
-            print ('Font Error, saw it coming' )
+            print("comici.ttf download")
             raise e

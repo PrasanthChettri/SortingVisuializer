@@ -17,6 +17,9 @@ class Sort:
         print(* [blit.H() for blit in blits])
     @staticmethod
     def show(Text , screen ,  i ,  j ):
+        for event in pygame.event.get():  
+            if event.type == pygame.QUIT:  
+                exit(0)
         clock.tick(60)
         Blit.row_draw(blits ,i ,  j)
         text(Text , screen).display()
@@ -33,32 +36,45 @@ class Sort:
     def __str__(self):
         return ("We out here sorting bruh")
 
-    #O(N^2) algos
-    def bubble(self):
+#O(N^2) algos
+class bubblesort(Sort):
+    def __init__(self, screen , window_size):
         self.name = "BUBBLE SORT"
+        super().__init__(screen , window_size)
+        self.arr = blits 
+        self.blen = len(self.arr)
+
+    def sort(self):
         for i in range(blen - 1) : 
             for j in range(blen - 1) :
-                if blits[j].H() > blits[j+1].H():
-                    blits[j] , blits[j+1]  = blits[j+1]  , blits[j]
+                if self.arr[j].H() > self.arr[j+1].H():
+                    self.arr[j] , self.arr[j+1]  = self.arr[j+1]  , self.arr[j]
                     self.show(self.name , self.screen , j , j+1)
 
-    def insertion(self):
+class insertionsort(Sort):
+    def __init__(self, screen , window_size):
+        self.name = "INSERTION SORT"
+        super().__init__(screen , window_size)
+        self.arr = blits 
+        self.blen = len(self.arr)
+
+    def sort(self):
         self.name = "INSERTION SORT"
         self.Text = text(self.name , self.screen)
         for i in range(1 , blen):
-            temp = blits[i]
+            temp = self.arr[i]
             pos = i-1 
-            while pos != 0 and temp.H() < blits[pos].H():
-                blits[pos+1] = blits[pos]
+            while pos != 0 and temp.H() < self.arr[pos].H():
+                self.arr[pos+1] = self.arr[pos]
                 pos -= 1
-            blits[pos] = temp
+            self.arr[pos] = temp
             Sort.show(self.name , self.screen , pos , i)
 
 
 #0(Nlogn) algos
 class quicksort(Sort):
     def __init__(self, screen , window_size):
-        self.name = "QUICK SORT"
+        self.name = "QUICKSORT SORT"
         super().__init__(screen , window_size)
         self.arr = blits 
 
