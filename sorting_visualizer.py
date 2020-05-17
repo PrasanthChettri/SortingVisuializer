@@ -20,21 +20,19 @@ def endloop():
         Sort.show("FINISHED" , screen , -1 , -1)
 
 if __name__ == "__main__" : 
-    try : 
-        st = argv[1]
-    except Exception : 
-        endloop()
-        exit()
+    st = argv[-1]
     obj = None 
+
     if st  == "bubblesort" : 
         obj = bubblesort(screen , WS)
-    if st  == "insertionsort" : 
+    elif st  == "insertionsort" : 
         obj = insertionsort(screen , WS)
-    if st  == "quicksort" : 
+    elif st  == "quicksort" : 
         obj = quicksort(screen , WS)
-    if st == "mergesort" :
+    elif st == "mergesort" :
         obj = mergesort(screen , WS) 
     else :
         obj = bogosort(screen , WS)
+
     obj.sort()
     endloop()
