@@ -12,7 +12,7 @@ clock = pygame.time.Clock()
 screen = pygame.display.set_mode(WS)
 
 def endloop():
-    done = False  
+    done = False
     while not done:  
         for event in pygame.event.get():  
             if event.type == pygame.QUIT:  
